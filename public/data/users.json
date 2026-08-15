@@ -17,7 +17,8 @@
   {
     "handle": "1Asemanii",
     "displayName": "sky",
-    "joined": "January 2012"
+    "joined": "January 2012",
+    "isPrivate": true
   },
   {
     "handle": "1CrazyCatLover",
@@ -61,7 +62,8 @@
   {
     "handle": "2ndmoon",
     "displayName": "2ndmoon",
-    "joined": "December 2007"
+    "joined": "December 2007",
+    "isPrivate": true
   },
   {
     "handle": "30na60",
@@ -106,7 +108,8 @@
   {
     "handle": "_alirezarazavi",
     "displayName": "Alireza Razavi",
-    "joined": "April 2009"
+    "joined": "April 2009",
+    "isPrivate": true
   },
   {
     "handle": "_alirezas",
@@ -129,7 +132,8 @@
   {
     "handle": "_Exception_",
     "displayName": "Sarah",
-    "joined": "November 2010"
+    "joined": "November 2010",
+    "isPrivate": true
   },
   {
     "handle": "_MehryarS_",
@@ -159,7 +163,8 @@
   {
     "handle": "_skybird____",
     "displayName": "skybird",
-    "joined": "May 2009"
+    "joined": "May 2009",
+    "isPrivate": true
   },
   {
     "handle": "_Taher_",

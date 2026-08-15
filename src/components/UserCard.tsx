@@ -6,6 +6,7 @@ import {
   VerifiedIcon,
   PencilIcon,
   DeviceIcon,
+  LockIcon,
   XLogoIcon,
   ArchiveLogoIcon,
 } from "./Icons";
@@ -58,7 +59,12 @@ export const UserCard: FC<UserCardProps> = ({
       <div className="user-card-top">
         <Avatar user={user} baseUrl={baseUrl} />
         <div className="user-text">
-          <div className="user-handle">@{user.handle}</div>
+          <div className="user-handle">
+            @{user.handle}
+            {user.isPrivate && (
+              <LockIcon className="private-badge" aria-label="Private account" />
+            )}
+          </div>
           {expanded && (
             <div className="user-name">
               {user.displayName}
@@ -75,8 +81,15 @@ export const UserCard: FC<UserCardProps> = ({
           user.joined ||
           user.verifiedSince ||
           user.usernameChangeSummary ||
-          user.connectedVia) && (
+          user.connectedVia ||
+          user.isPrivate) && (
           <div className="user-card-meta">
+            {user.isPrivate && (
+              <div className="user-meta-row">
+                <LockIcon className="user-meta-icon" />
+                Private account
+              </div>
+            )}
             {user.location && (
               <div className="user-meta-row">
                 <LocationIcon className="user-meta-icon" />

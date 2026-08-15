@@ -19,6 +19,8 @@ export interface XUserRecord {
   usernameChangesLastOn?: string;
   /** Optional client/device string, e.g. "United States App Store". */
   connectedVia?: string;
+  /** Whether this account is set to private/protected on X. */
+  isPrivate?: boolean;
 }
 
 /**
@@ -35,6 +37,7 @@ export class XUser {
   readonly usernameChanges?: number;
   readonly usernameChangesLastOn?: string;
   readonly connectedVia?: string;
+  readonly isPrivate?: boolean;
 
   /** Extension expected for locally supplied avatars, see public/images/users/README.md */
   private static readonly imageExtension = "webp";
@@ -49,6 +52,7 @@ export class XUser {
       typeof record.usernameChanges === "number" ? record.usernameChanges : undefined;
     this.usernameChangesLastOn = record.usernameChangesLastOn?.trim() || undefined;
     this.connectedVia = record.connectedVia?.trim() || undefined;
+    this.isPrivate = record.isPrivate === true;
   }
 
   /** The live profile on X, e.g. https://x.com/jfjfj */

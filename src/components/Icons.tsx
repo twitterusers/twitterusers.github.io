@@ -125,6 +125,23 @@ export const DeviceIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
+/** Padlock glyph marking a private/protected account. */
+export const LockIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    {...props}
+  >
+    <rect x="4.5" y="10.5" width="15" height="10" rx="2" />
+    <path d="M7.5 10.5V7a4.5 4.5 0 0 1 9 0v3.5" />
+  </svg>
+);
+
 export const GitHubIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
     <path

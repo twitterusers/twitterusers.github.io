@@ -306,6 +306,16 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.private-badge {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  color: var(--text-3);
 }
 
 .user-card-meta {
