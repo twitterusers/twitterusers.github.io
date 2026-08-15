@@ -159,6 +159,44 @@ export const GlobeIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
+/** SoundCloud's cloud-and-waveform mark, simplified. */
+export const SoundCloudIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+    <path
+      d="M6.5 10.2v7.3h11.2a3.4 3.4 0 0 0 .4-6.78 4.6 4.6 0 0 0-8.83-1.7 3 3 0 0 0-2.77 1.18Z"
+      fill="currentColor"
+      opacity="0.16"
+      stroke="currentColor"
+      strokeWidth={1.4}
+      strokeLinejoin="round"
+    />
+    <path
+      d="M4.6 12.4v4.6M2.7 13.4v2.6"
+      stroke="currentColor"
+      strokeWidth={1.4}
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
+/** Generic outbound-link glyph for links that aren't a website or SoundCloud. */
+export const LinkIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    {...props}
+  >
+    <path d="M10 14 20 4" />
+    <path d="M14 4h6v6" />
+    <path d="M19 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5" />
+  </svg>
+);
+
 export const GitHubIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
     <path

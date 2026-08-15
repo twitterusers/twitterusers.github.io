@@ -21,8 +21,12 @@ export interface XUserRecord {
   connectedVia?: string;
   /** Whether this account is set to private/protected on X. */
   isPrivate?: boolean;
-  /** Optional personal/external website URL from the account's bio. */
-  web?: string;
+  /**
+   * Optional external links from the account's bio (personal site,
+   * SoundCloud, etc). One user can have several. `label` is shown in
+   * the UI; `url` is what the link opens.
+   */
+  links?: { label: string; url: string }[];
 }
 
 /**
@@ -40,7 +44,7 @@ export class XUser {
   readonly usernameChangesLastOn?: string;
   readonly connectedVia?: string;
   readonly isPrivate?: boolean;
-  readonly web?: string;
+  readonly links: { label: string; url: string }[];
 
   /** Extension expected for locally supplied avatars, see public/images/users/README.md */
   private static readonly imageExtension = "webp";
@@ -56,7 +60,9 @@ export class XUser {
     this.usernameChangesLastOn = record.usernameChangesLastOn?.trim() || undefined;
     this.connectedVia = record.connectedVia?.trim() || undefined;
     this.isPrivate = record.isPrivate === true;
-    this.web = record.web?.trim() || undefined;
+    this.links = (record.links ?? [])
+      .map((link) => ({ label: link.label.trim(), url: link.url.trim() }))
+      .filter((link) => link.label && link.url);
   }
 
   /** The live profile on X, e.g. https://x.com/jfjfj */
@@ -110,7 +116,8 @@ export class XUser {
     return countText ?? `Last changed ${lastOn}`;
   }
 
-  /** Whether this entry matches a free text search query. */  matches(query: string): boolean {
+  /** Whether this entry matches a free text search query. */
+  matches(query: string): boolean {
     const q = query.trim().toLowerCase();
     if (!q) return true;
     return (

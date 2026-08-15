@@ -320,7 +320,12 @@
     "handle": "amin",
     "displayName": "Amin Mohammadi",
     "joined": "February 2007",
-    "web": "http://rozha.blogsome.com/"
+    "links": [
+      {
+        "label": "Website",
+        "url": "https://cybertux.wordpress.com/"
+      }
+    ]
   },
   {
     "handle": "aminbz",
@@ -368,7 +373,30 @@
   },
   {
     "handle": "amiryaghoubali",
-    "displayName": "Amir Yaghoubali"
+    "displayName": "Amir Yaghoubali",
+    "joined": "May 2012",
+    "location": "Sweden",
+    "usernameChanges": 2,
+    "usernameChangesLastOn": "May 2016",
+    "connectedVia": "United States App Store",
+    "links": [
+      {
+        "label": "Website",
+        "url": "http://weblog.kooche.net/"
+      },
+      {
+        "label": "Website",
+        "url": "http://www.amiir.net/"
+      },
+      {
+        "label": "Website",
+        "url": "http://sovietpostcards.blogspot.com/"
+      },
+      {
+        "label": "SoundCloud",
+        "url": "https://soundcloud.com/amir-yaghoubali"
+      }
+    ]
   },
   {
     "handle": "Amoraeus",
@@ -1545,8 +1573,13 @@
   {
     "handle": "mhmazidi",
     "displayName": "Hossein Mazidi",
-    "web": "https://mhmazidi.wordpress.com/",
-    "joined": "January 2007"
+    "joined": "January 2007",
+    "links": [
+      {
+        "label": "Website",
+        "url": "https://mhmazidi.wordpress.com/"
+      }
+    ]
   },
   {
     "handle": "MHozeh",
@@ -1802,7 +1835,12 @@
     "location": "United Kingdom",
     "verifiedSince": "January 2012",
     "connectedVia": "United Kingdom Android App",
-    "web": "http://www.osyan.net"
+    "links": [
+      {
+        "label": "Website",
+        "url": "http://www.osyan.net"
+      }
+    ]
   },
   {
     "handle": "nimania",

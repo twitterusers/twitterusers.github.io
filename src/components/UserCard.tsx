@@ -8,6 +8,8 @@ import {
   DeviceIcon,
   LockIcon,
   GlobeIcon,
+  SoundCloudIcon,
+  LinkIcon,
   XLogoIcon,
   ArchiveLogoIcon,
 } from "./Icons";
@@ -22,13 +24,21 @@ interface UserCardProps {
 }
 
 /** Strips the protocol/www and trailing slash for a compact display label. */
-function formatWebLabel(url: string): string {
+function formatLinkLabel(url: string): string {
   try {
     const parsed = new URL(url);
     return (parsed.host + parsed.pathname).replace(/^www\./, "").replace(/\/$/, "");
   } catch {
     return url;
   }
+}
+
+/** Picks an icon for a link by its label, so new link types don't need new UI. */
+function iconForLink(label: string) {
+  const key = label.trim().toLowerCase();
+  if (key === "soundcloud") return SoundCloudIcon;
+  if (key === "web" || key === "website") return GlobeIcon;
+  return LinkIcon;
 }
 
 /**
@@ -93,7 +103,7 @@ export const UserCard: FC<UserCardProps> = ({
           user.verifiedSince ||
           user.usernameChangeSummary ||
           user.connectedVia ||
-          user.web ||
+          user.links.length > 0 ||
           user.isPrivate) && (
           <div className="user-card-meta">
             {user.isPrivate && (
@@ -132,18 +142,22 @@ export const UserCard: FC<UserCardProps> = ({
                 {user.connectedVia}
               </div>
             )}
-            {user.web && (
-              <a
-                className="user-meta-row user-meta-link"
-                href={user.web}
-                target="_blank"
-                rel="noreferrer"
-                onClick={(event) => event.stopPropagation()}
-              >
-                <GlobeIcon className="user-meta-icon" />
-                {formatWebLabel(user.web)}
-              </a>
-            )}
+            {user.links.map((link) => {
+              const Icon = iconForLink(link.label);
+              return (
+                <a
+                  key={link.url}
+                  className="user-meta-row user-meta-link"
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <Icon className="user-meta-icon" />
+                  {formatLinkLabel(link.url)}
+                </a>
+              );
+            })}
           </div>
         )}
 
