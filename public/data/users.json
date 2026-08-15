@@ -80,10 +80,6 @@
     "displayName": "MEHRYĀR.S"
   },
   {
-    "handle": "_Nightwatcher",
-    "displayName": "Nightwatcher"
-  },
-  {
     "handle": "_Nightwatcher_",
     "displayName": "Nightwatcher 🌌"
   },
@@ -2474,5 +2470,9 @@
   {
     "handle": "zzgraph",
     "displayName": "Shahab Shahsavari Alavidjeh"
+  },
+  {
+    "handle": "sam1kia_en",
+    "displayName": "sam1kia_en"
   }
 ]
