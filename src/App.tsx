@@ -4,6 +4,7 @@ import type { XUser } from "./models/XUser";
 import { UserCard } from "./components/UserCard";
 import { SearchBar } from "./components/SearchBar";
 import { Footer } from "./components/Footer";
+import { NavHeader } from "./components/NavHeader";
 
 type LoadState =
   | { status: "loading" }
@@ -40,7 +41,9 @@ export const App: FC = () => {
   }, [state, query]);
 
   return (
-    <div className="page">
+    <div className="page" id="top">
+      <NavHeader userCount={state.status === "ready" ? state.directory.count : undefined} />
+
       <header className="page-header">
         <span className="eyebrow">Directory</span>
         <h1 className="page-title">A record of who moved where</h1>
