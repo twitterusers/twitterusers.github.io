@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { GitHubIcon, XLogoIcon, ArchiveLogoIcon } from "./Icons";
+import { GitHubIcon, GridIcon } from "./Icons";
 
 interface NavHeaderProps {
   userCount?: number;
@@ -7,18 +7,18 @@ interface NavHeaderProps {
 
 /**
  * Sticky top navigation. Kept intentionally small and quiet so it
- * doesn't compete with the hero title beneath it — a brand mark on
- * the left, outbound reference links on the right. All icons come
- * from Icons.tsx rather than emoji or an icon font, so they render
- * identically everywhere and can be sized purely from CSS.
+ * doesn't compete with the hero title beneath it: a brand mark on the
+ * left that acts as the home link, and a single outbound link (the
+ * repo) on the right. Per-entry X / Wayback Machine links already
+ * live on every card, so repeating them here was redundant.
  */
 export const NavHeader: FC<NavHeaderProps> = ({ userCount }) => {
   return (
     <header className="nav-header">
       <div className="nav-inner">
-        <a className="nav-brand" href="#top" aria-label="Directory, back to top">
+        <a className="nav-brand" href={import.meta.env.BASE_URL} aria-label="Directory home">
           <span className="nav-brand-mark" aria-hidden="true">
-            <XLogoIcon className="nav-brand-icon" />
+            <GridIcon className="nav-brand-icon" />
           </span>
           <span className="nav-brand-text">
             Directory
@@ -29,24 +29,6 @@ export const NavHeader: FC<NavHeaderProps> = ({ userCount }) => {
         </a>
 
         <nav className="nav-links" aria-label="Reference links">
-          <a
-            className="nav-link"
-            href="https://x.com"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <XLogoIcon className="nav-link-icon" />
-            <span>X</span>
-          </a>
-          <a
-            className="nav-link"
-            href="https://web.archive.org"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <ArchiveLogoIcon className="nav-link-icon" />
-            <span>Wayback&nbsp;Machine</span>
-          </a>
           <a
             className="nav-link nav-link-repo"
             href="https://github.com/twitterusers/twitterusers.github.io"

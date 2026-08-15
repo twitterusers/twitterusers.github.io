@@ -16,6 +16,7 @@ const BASE_URL = import.meta.env.BASE_URL;
 export const App: FC = () => {
   const [state, setState] = useState<LoadState>({ status: "loading" });
   const [query, setQuery] = useState("");
+  const [expandedHandle, setExpandedHandle] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -81,6 +82,12 @@ export const App: FC = () => {
                   key={user.handle}
                   user={user}
                   baseUrl={BASE_URL}
+                  expanded={expandedHandle === user.handle}
+                  onToggle={() =>
+                    setExpandedHandle((current) =>
+                      current === user.handle ? null : user.handle,
+                    )
+                  }
                   style={{ animationDelay: `${Math.min(index, 24) * 18}ms` }}
                 />
               ))}

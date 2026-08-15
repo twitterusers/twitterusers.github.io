@@ -1,4 +1,4 @@
-import { useState, type FC, type KeyboardEvent } from "react";
+import type { FC, KeyboardEvent } from "react";
 import { Avatar } from "./Avatar";
 import {
   LocationIcon,
@@ -11,6 +11,8 @@ import type { XUser } from "../models/XUser";
 interface UserCardProps {
   user: XUser;
   baseUrl: string;
+  expanded: boolean;
+  onToggle: () => void;
   style?: React.CSSProperties;
 }
 
@@ -20,16 +22,22 @@ interface UserCardProps {
  * Enter/Space on) the card toggles it open in place to reveal the
  * display name and the two outbound links. Only the expanded links
  * navigate away, so a stray click never leaves the page.
+ *
+ * Expand/collapse state is owned by the parent (one `expandedHandle`
+ * for the whole grid) rather than local state here, so opening a new
+ * card automatically closes whichever one was open before.
  */
-export const UserCard: FC<UserCardProps> = ({ user, baseUrl, style }) => {
-  const [expanded, setExpanded] = useState(false);
-
-  const toggle = () => setExpanded((value) => !value);
-
+export const UserCard: FC<UserCardProps> = ({
+  user,
+  baseUrl,
+  expanded,
+  onToggle,
+  style,
+}) => {
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      toggle();
+      onToggle();
     }
   };
 
@@ -41,7 +49,7 @@ export const UserCard: FC<UserCardProps> = ({ user, baseUrl, style }) => {
       tabIndex={0}
       aria-expanded={expanded}
       aria-label={`${expanded ? "Collapse" : "Expand"} ${user.displayName}`}
-      onClick={toggle}
+      onClick={onToggle}
       onKeyDown={handleKeyDown}
     >
       <div className="user-card-top">
