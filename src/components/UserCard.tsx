@@ -1,5 +1,11 @@
 import { useState, type FC, type KeyboardEvent } from "react";
 import { Avatar } from "./Avatar";
+import {
+  LocationIcon,
+  CalendarIcon,
+  XLogoIcon,
+  ArchiveLogoIcon,
+} from "./Icons";
 import type { XUser } from "../models/XUser";
 
 interface UserCardProps {
@@ -50,17 +56,13 @@ export const UserCard: FC<UserCardProps> = ({ user, baseUrl, style }) => {
         <div className="user-card-meta">
           {user.location && (
             <div className="user-meta-row">
-              <span className="user-meta-icon" aria-hidden="true">
-                📍
-              </span>
+              <LocationIcon className="user-meta-icon" />
               {user.location}
             </div>
           )}
           {user.joined && (
             <div className="user-meta-row">
-              <span className="user-meta-icon" aria-hidden="true">
-                📅
-              </span>
+              <CalendarIcon className="user-meta-icon" />
               Joined {user.joined}
             </div>
           )}
@@ -74,18 +76,22 @@ export const UserCard: FC<UserCardProps> = ({ user, baseUrl, style }) => {
             href={user.xProfileUrl}
             target="_blank"
             rel="noreferrer"
+            aria-label={`Open ${user.displayName} on X`}
+            title="Open on X"
             onClick={(event) => event.stopPropagation()}
           >
-            X profile
+            <XLogoIcon className="user-link-icon" />
           </a>
           <a
             className="user-link"
             href={user.archiveProfileUrl}
             target="_blank"
             rel="noreferrer"
+            aria-label={`Open ${user.displayName}'s archived history on the Wayback Machine`}
+            title="Open on the Wayback Machine"
             onClick={(event) => event.stopPropagation()}
           >
-            Archive
+            <ArchiveLogoIcon className="user-link-icon" />
           </a>
         </div>
       )}

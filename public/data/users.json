@@ -80,10 +80,6 @@
     "displayName": "MEHRYĀR.S"
   },
   {
-    "handle": "_Nightwatcher",
-    "displayName": "Nightwatcher"
-  },
-  {
     "handle": "_Nightwatcher_",
     "displayName": "Nightwatcher 🌌"
   },
@@ -2040,6 +2036,10 @@
   {
     "handle": "Sam1Kia",
     "displayName": "Sam Kia"
+  },
+  {
+    "handle": "sam1kia_en",
+    "displayName": "sam1kia_en"
   },
   {
     "handle": "Sam_Farzaneh",
