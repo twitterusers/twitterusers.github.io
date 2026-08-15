@@ -7,6 +7,10 @@
 export interface XUserRecord {
   handle: string;
   displayName: string;
+  /** Optional "Joined <Month year>" text, shown in the expanded card if present. */
+  joined?: string;
+  /** Optional free-text location, shown in the expanded card if present. */
+  location?: string;
 }
 
 /**
@@ -17,6 +21,8 @@ export interface XUserRecord {
 export class XUser {
   readonly handle: string;
   readonly displayName: string;
+  readonly joined?: string;
+  readonly location?: string;
 
   /** Extension expected for locally supplied avatars, see public/images/users/README.md */
   private static readonly imageExtension = "webp";
@@ -24,6 +30,8 @@ export class XUser {
   constructor(record: XUserRecord) {
     this.handle = record.handle.trim();
     this.displayName = record.displayName.trim() || record.handle.trim();
+    this.joined = record.joined?.trim() || undefined;
+    this.location = record.location?.trim() || undefined;
   }
 
   /** The live profile on X, e.g. https://x.com/jfjfj */
@@ -34,11 +42,18 @@ export class XUser {
   /**
    * The Wayback Machine's calendar view for that same handle's old
    * Twitter profile. A "*" wildcard on the capture timestamp lands on
-   * whatever snapshots archive.org actually holds for
-   * twitter.com/<handle>, rather than requiring one exact date.
+   * every snapshot archive.org holds for twitter.com/<handle>, across
+   * all years, rather than requiring one exact date.
+   *
+   * Scheme matters here: old Twitter profile pages were served over
+   * plain http, not https (Twitter didn't move to https-by-default
+   * until years later), and most of the earliest Wayback captures are
+   * filed under the http:// URL. Using https:// in the target URL
+   * causes the calendar to miss those early snapshots, so this always
+   * points at http://twitter.com/<handle>.
    */
   get archiveProfileUrl(): string {
-    return `https://web.archive.org/web/2020*/https://twitter.com/${this.handle}`;
+    return `https://web.archive.org/web/*/http://twitter.com/${this.handle}`;
   }
 
   /** Local avatar path, matched by filename to the handle (lowercase). */

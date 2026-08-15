@@ -46,6 +46,27 @@ export const UserCard: FC<UserCardProps> = ({ user, baseUrl, style }) => {
         </div>
       </div>
 
+      {expanded && (user.joined || user.location) && (
+        <div className="user-card-meta">
+          {user.location && (
+            <div className="user-meta-row">
+              <span className="user-meta-icon" aria-hidden="true">
+                📍
+              </span>
+              {user.location}
+            </div>
+          )}
+          {user.joined && (
+            <div className="user-meta-row">
+              <span className="user-meta-icon" aria-hidden="true">
+                📅
+              </span>
+              Joined {user.joined}
+            </div>
+          )}
+        </div>
+      )}
+
       {expanded && (
         <div className="user-card-links">
           <a
