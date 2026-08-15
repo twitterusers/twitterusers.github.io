@@ -5,6 +5,6 @@ import react from "@vitejs/plugin-react";
 // https://junipersolstice.github.io/xyz/, so the base must match the
 // repo name for built assets and the runtime JSON fetch to resolve.
 export default defineConfig({
-  base: "/xyz/",
+  base: "/",
   plugins: [react()],
 });
