@@ -197,6 +197,23 @@ export const LinkIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
+/** "@" glyph marking a handle's earliest known username, before any renames. */
+export const AtIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.8}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    {...props}
+  >
+    <circle cx="12" cy="12" r="4.2" />
+    <path d="M16.2 12v1.6a2.7 2.7 0 0 0 5.3-.6V12a9.5 9.5 0 1 0-3.7 7.5" />
+  </svg>
+);
+
 export const GitHubIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
     <path

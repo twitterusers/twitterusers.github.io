@@ -13,6 +13,8 @@ export interface XUserRecord {
   location?: string;
   /** Optional "Verified since <Month year>" text, from X's verification date. */
   verifiedSince?: string;
+  /** Whether the account shows X's undated "ID Verified" badge. */
+  idVerified?: boolean;
   /** Optional count of username changes this account has made. */
   usernameChanges?: number;
   /** Optional date of the most recent username change. */
@@ -27,6 +29,8 @@ export interface XUserRecord {
    * the UI; `url` is what the link opens.
    */
   links?: { label: string; url: string }[];
+  /** Optional earliest known handle this account used, if it has since been renamed. */
+  firstUsername?: string;
 }
 
 /**
@@ -40,11 +44,13 @@ export class XUser {
   readonly joined?: string;
   readonly location?: string;
   readonly verifiedSince?: string;
+  readonly idVerified?: boolean;
   readonly usernameChanges?: number;
   readonly usernameChangesLastOn?: string;
   readonly connectedVia?: string;
   readonly isPrivate?: boolean;
   readonly links: { label: string; url: string }[];
+  readonly firstUsername?: string;
 
   /** Extension expected for locally supplied avatars, see public/images/users/README.md */
   private static readonly imageExtension = "webp";
@@ -55,6 +61,7 @@ export class XUser {
     this.joined = record.joined?.trim() || undefined;
     this.location = record.location?.trim() || undefined;
     this.verifiedSince = record.verifiedSince?.trim() || undefined;
+    this.idVerified = record.idVerified === true;
     this.usernameChanges =
       typeof record.usernameChanges === "number" ? record.usernameChanges : undefined;
     this.usernameChangesLastOn = record.usernameChangesLastOn?.trim() || undefined;
@@ -63,6 +70,7 @@ export class XUser {
     this.links = (record.links ?? [])
       .map((link) => ({ label: link.label.trim(), url: link.url.trim() }))
       .filter((link) => link.label && link.url);
+    this.firstUsername = record.firstUsername?.trim() || undefined;
   }
 
   /** The live profile on X, e.g. https://x.com/jfjfj */

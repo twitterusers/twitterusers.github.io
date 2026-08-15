@@ -10,6 +10,7 @@ import {
   GlobeIcon,
   SoundCloudIcon,
   LinkIcon,
+  AtIcon,
   XLogoIcon,
   ArchiveLogoIcon,
 } from "./Icons";
@@ -92,6 +93,9 @@ export const UserCard: FC<UserCardProps> = ({
               {user.verifiedSince && (
                 <VerifiedIcon className="verified-badge" aria-label="Verified" />
               )}
+              {user.idVerified && (
+                <VerifiedIcon className="verified-badge" aria-label="ID Verified" />
+              )}
             </div>
           )}
         </div>
@@ -101,9 +105,11 @@ export const UserCard: FC<UserCardProps> = ({
         (user.location ||
           user.joined ||
           user.verifiedSince ||
+          user.idVerified ||
           user.usernameChangeSummary ||
           user.connectedVia ||
           user.links.length > 0 ||
+          user.firstUsername ||
           user.isPrivate) && (
           <div className="user-card-meta">
             {user.isPrivate && (
@@ -130,6 +136,12 @@ export const UserCard: FC<UserCardProps> = ({
                 Verified since {user.verifiedSince}
               </div>
             )}
+            {!user.verifiedSince && user.idVerified && (
+              <div className="user-meta-row">
+                <VerifiedIcon className="user-meta-icon" />
+                ID Verified
+              </div>
+            )}
             {user.usernameChangeSummary && (
               <div className="user-meta-row">
                 <PencilIcon className="user-meta-icon" />
@@ -140,6 +152,12 @@ export const UserCard: FC<UserCardProps> = ({
               <div className="user-meta-row">
                 <DeviceIcon className="user-meta-icon" />
                 {user.connectedVia}
+              </div>
+            )}
+            {user.firstUsername && (
+              <div className="user-meta-row">
+                <AtIcon className="user-meta-icon" />
+                First username: {user.firstUsername}
               </div>
             )}
             {user.links.map((link) => {
