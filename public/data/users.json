@@ -1056,7 +1056,15 @@
   },
   {
     "handle": "fatik",
-    "displayName": "fatik"
+    "displayName": "fatik",
+    "joined": "February 2008",
+    "links": [
+      {
+        "label": "Website",
+        "url": "http://fatik.blogspot.com/"
+      }
+    ],
+    "updatedOrder": 629
   },
   {
     "handle": "fazi6",
@@ -1602,7 +1610,19 @@
   },
   {
     "handle": "Mahtob_M",
-    "displayName": "Mahtob"
+    "displayName": "Mahtob ؛",
+    "joined": "November 2008",
+    "location": "Canada",
+    "verifiedSince": "July 2024",
+    "idVerified": true,
+    "connectedVia": "Canada App Store",
+    "links": [
+      {
+        "label": "Website",
+        "url": "http://bbmahtaab.blogspot.com/"
+      }
+    ],
+    "updatedOrder": 634
   },
   {
     "handle": "mahyashin",
@@ -2631,7 +2651,12 @@
   },
   {
     "handle": "soudehrad",
-    "displayName": "Soudeh Rad"
+    "displayName": "Soudeh Rad",
+    "joined": "May 2008",
+    "location": "France",
+    "connectedVia": "Web",
+    "firstUsername": "soudehrad",
+    "updatedOrder": 632
   },
   {
     "handle": "sourenaface",
@@ -2923,6 +2948,40 @@
         "label": "Website",
         "url": "http://khorshidkhanoom.com/"
       }
-    ]
+    ],
+    "firstUsername": "khorshid",
+    "updatedOrder": 628
+  },
+  {
+    "handle": "Nimanifest",
+    "displayName": "Nima Rasoulzadeh / نیما رسول زاده",
+    "isPrivate": true,
+    "joined": "July 2025",
+    "firstUsername": "Nimanifest",
+    "updatedOrder": 630
+  },
+  {
+    "handle": "AtiehS",
+    "displayName": "AtiehS",
+    "joined": "June 2009",
+    "location": "Canada",
+    "verifiedSince": "March 2026",
+    "connectedVia": "Canada App Store",
+    "firstUsername": "AtiehS",
+    "updatedOrder": 631
+  },
+  {
+    "handle": "maryamin",
+    "displayName": "maryamin مریمین",
+    "isPrivate": true,
+    "joined": "December 2008",
+    "firstUsername": "maryamin",
+    "links": [
+      {
+        "label": "Website",
+        "url": "http://maryamin.com/"
+      }
+    ],
+    "updatedOrder": 633
   }
 ]

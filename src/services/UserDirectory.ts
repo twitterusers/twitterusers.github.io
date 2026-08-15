@@ -1,7 +1,7 @@
 import { XUser, type XUserRecord } from "../models/XUser";
 
 /** The two ways the directory grid can be ordered. */
-export type SortOrder = "alphabetical" | "newest";
+export type SortOrder = "alphabetical" | "recentlyUpdated";
 
 /**
  * Loads and holds the full set of XUser entries. Kept as a small class
@@ -27,16 +27,16 @@ export class UserDirectory {
 
   /**
    * Entries whose handle or display name matches the given query,
-   * ordered per `sort`: "alphabetical" (A-Z by handle) or "newest"
-   * (most recently added to the directory first).
+   * ordered per `sort`: "alphabetical" (A-Z by handle) or
+   * "recentlyUpdated" (most recently added or edited first).
    */
   search(query: string, sort: SortOrder = "alphabetical"): XUser[] {
     const matches = query.trim()
       ? this.users.filter((user) => user.matches(query))
       : this.users;
 
-    if (sort === "newest") {
-      return [...matches].sort((a, b) => b.addedOrder - a.addedOrder);
+    if (sort === "recentlyUpdated") {
+      return [...matches].sort((a, b) => b.updatedOrder - a.updatedOrder);
     }
     return matches;
   }

@@ -8,13 +8,13 @@ interface SortToggleProps {
 
 /**
  * Two clear, scannable options rather than raw internal names:
- * "A-Z" for the alphabetical order, "Newest first" for insertion
- * order reversed. Both read as outcomes ("what will I see"), not
- * implementation details ("added new").
+ * "A-Z" for the alphabetical order, "Recently updated" for entries
+ * that were most recently added or edited. Both read as outcomes
+ * ("what will I see"), not implementation details.
  */
 const OPTIONS: { value: SortOrder; label: string }[] = [
   { value: "alphabetical", label: "A–Z" },
-  { value: "newest", label: "Newest first" },
+  { value: "recentlyUpdated", label: "Recently updated" },
 ];
 
 export const SortToggle: FC<SortToggleProps> = ({ value, onChange }) => {

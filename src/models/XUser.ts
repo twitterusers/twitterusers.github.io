@@ -31,6 +31,13 @@ export interface XUserRecord {
   links?: { label: string; url: string }[];
   /** Optional earliest known handle this account used, if it has since been renamed. */
   firstUsername?: string;
+  /**
+   * Monotonic counter set whenever this entry's data was last added
+   * or edited. Higher means more recently touched. Used to power the
+   * "Recently updated" sort; entries without one fall back to their
+   * position in the file.
+   */
+  updatedOrder?: number;
 }
 
 /**
@@ -58,6 +65,8 @@ export class XUser {
    * is what powers the "Newest" sort order.
    */
   readonly addedOrder: number;
+  /** Higher means more recently added or edited; see XUserRecord.updatedOrder. */
+  readonly updatedOrder: number;
 
   /** Extension expected for locally supplied avatars, see public/images/users/README.md */
   private static readonly imageExtension = "webp";
@@ -79,6 +88,7 @@ export class XUser {
       .filter((link) => link.label && link.url);
     this.firstUsername = record.firstUsername?.trim() || undefined;
     this.addedOrder = addedOrder;
+    this.updatedOrder = record.updatedOrder ?? addedOrder;
   }
 
   /** The live profile on X, e.g. https://x.com/jfjfj */
