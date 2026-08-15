@@ -51,11 +51,18 @@ export class XUser {
   readonly isPrivate?: boolean;
   readonly links: { label: string; url: string }[];
   readonly firstUsername?: string;
+  /**
+   * Index in the original users.json array, before any sorting. New
+   * entries are always appended to the end of that file, so a higher
+   * number means it was added to the directory more recently — this
+   * is what powers the "Newest" sort order.
+   */
+  readonly addedOrder: number;
 
   /** Extension expected for locally supplied avatars, see public/images/users/README.md */
   private static readonly imageExtension = "webp";
 
-  constructor(record: XUserRecord) {
+  constructor(record: XUserRecord, addedOrder = 0) {
     this.handle = record.handle.trim();
     this.displayName = record.displayName.trim() || record.handle.trim();
     this.joined = record.joined?.trim() || undefined;
@@ -71,6 +78,7 @@ export class XUser {
       .map((link) => ({ label: link.label.trim(), url: link.url.trim() }))
       .filter((link) => link.label && link.url);
     this.firstUsername = record.firstUsername?.trim() || undefined;
+    this.addedOrder = addedOrder;
   }
 
   /** The live profile on X, e.g. https://x.com/jfjfj */
@@ -134,7 +142,7 @@ export class XUser {
     );
   }
 
-  static fromRecord(record: XUserRecord): XUser {
-    return new XUser(record);
+  static fromRecord(record: XUserRecord, addedOrder = 0): XUser {
+    return new XUser(record, addedOrder);
   }
 }

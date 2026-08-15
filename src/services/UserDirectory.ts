@@ -1,5 +1,8 @@
 import { XUser, type XUserRecord } from "../models/XUser";
 
+/** The two ways the directory grid can be ordered. */
+export type SortOrder = "alphabetical" | "newest";
+
 /**
  * Loads and holds the full set of XUser entries. Kept as a small class
  * rather than a bag of free functions so that ordering, deduping, and
@@ -22,22 +25,32 @@ export class UserDirectory {
     return this.users.length;
   }
 
-  /** Entries whose handle or display name matches the given query. */
-  search(query: string): XUser[] {
-    if (!query.trim()) return this.users;
-    return this.users.filter((user) => user.matches(query));
+  /**
+   * Entries whose handle or display name matches the given query,
+   * ordered per `sort`: "alphabetical" (A-Z by handle) or "newest"
+   * (most recently added to the directory first).
+   */
+  search(query: string, sort: SortOrder = "alphabetical"): XUser[] {
+    const matches = query.trim()
+      ? this.users.filter((user) => user.matches(query))
+      : this.users;
+
+    if (sort === "newest") {
+      return [...matches].sort((a, b) => b.addedOrder - a.addedOrder);
+    }
+    return matches;
   }
 
   static fromRecords(records: XUserRecord[]): UserDirectory {
     const seen = new Set<string>();
     const users: XUser[] = [];
-    for (const record of records) {
-      const user = XUser.fromRecord(record);
+    records.forEach((record, index) => {
+      const user = XUser.fromRecord(record, index);
       const key = user.handle.toLowerCase();
-      if (!key || seen.has(key)) continue;
+      if (!key || seen.has(key)) return;
       seen.add(key);
       users.push(user);
-    }
+    });
     users.sort((a, b) =>
       a.handle.toLowerCase().localeCompare(b.handle.toLowerCase())
     );

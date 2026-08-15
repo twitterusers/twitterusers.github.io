@@ -165,6 +165,36 @@
   justify-content: space-between;
 }
 
+.sort-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  flex-shrink: 0;
+}
+
+.sort-toggle-option {
+  padding: 6px 12px;
+  border-radius: calc(var(--radius-card) - 3px);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-3);
+  transition: color 160ms var(--ease), background 160ms var(--ease);
+  white-space: nowrap;
+}
+
+.sort-toggle-option:hover {
+  color: var(--text-2);
+}
+
+.sort-toggle-option-active {
+  color: var(--text);
+  background: rgba(214, 219, 222, 0.1);
+}
+
 .search-input {
   flex: 1;
   min-width: 220px;
@@ -339,6 +369,20 @@
   height: 13px;
   flex-shrink: 0;
   color: var(--text-3);
+}
+
+.user-meta-link {
+  color: var(--text-2);
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 160ms var(--ease);
+}
+
+.user-meta-link:hover {
+  color: var(--accent-bright);
+  text-decoration: underline;
 }
 
 .user-card-links {

@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState, type FC } from "react";
-import { UserDirectory } from "./services/UserDirectory";
+import { UserDirectory, type SortOrder } from "./services/UserDirectory";
 import type { XUser } from "./models/XUser";
 import { UserCard } from "./components/UserCard";
 import { SearchBar } from "./components/SearchBar";
+import { SortToggle } from "./components/SortToggle";
 import { Footer } from "./components/Footer";
 import { NavHeader } from "./components/NavHeader";
 
@@ -16,6 +17,7 @@ const BASE_URL = import.meta.env.BASE_URL;
 export const App: FC = () => {
   const [state, setState] = useState<LoadState>({ status: "loading" });
   const [query, setQuery] = useState("");
+  const [sort, setSort] = useState<SortOrder>("alphabetical");
   const [expandedHandle, setExpandedHandle] = useState<string | null>(null);
 
   useEffect(() => {
@@ -38,8 +40,8 @@ export const App: FC = () => {
 
   const results: XUser[] = useMemo(() => {
     if (state.status !== "ready") return [];
-    return state.directory.search(query);
-  }, [state, query]);
+    return state.directory.search(query, sort);
+  }, [state, query, sort]);
 
   return (
     <div className="page" id="top">
@@ -56,6 +58,7 @@ export const App: FC = () => {
         {state.status === "ready" && (
           <div className="toolbar">
             <SearchBar value={query} onChange={setQuery} />
+            <SortToggle value={sort} onChange={setSort} />
             <span className="result-count">
               {results.length} of {state.directory.count}
             </span>
