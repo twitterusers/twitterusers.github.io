@@ -7,6 +7,7 @@ import {
   PencilIcon,
   DeviceIcon,
   LockIcon,
+  GlobeIcon,
   XLogoIcon,
   ArchiveLogoIcon,
 } from "./Icons";
@@ -18,6 +19,16 @@ interface UserCardProps {
   expanded: boolean;
   onToggle: () => void;
   style?: React.CSSProperties;
+}
+
+/** Strips the protocol/www and trailing slash for a compact display label. */
+function formatWebLabel(url: string): string {
+  try {
+    const parsed = new URL(url);
+    return (parsed.host + parsed.pathname).replace(/^www\./, "").replace(/\/$/, "");
+  } catch {
+    return url;
+  }
 }
 
 /**
@@ -82,6 +93,7 @@ export const UserCard: FC<UserCardProps> = ({
           user.verifiedSince ||
           user.usernameChangeSummary ||
           user.connectedVia ||
+          user.web ||
           user.isPrivate) && (
           <div className="user-card-meta">
             {user.isPrivate && (
@@ -119,6 +131,18 @@ export const UserCard: FC<UserCardProps> = ({
                 <DeviceIcon className="user-meta-icon" />
                 {user.connectedVia}
               </div>
+            )}
+            {user.web && (
+              <a
+                className="user-meta-row user-meta-link"
+                href={user.web}
+                target="_blank"
+                rel="noreferrer"
+                onClick={(event) => event.stopPropagation()}
+              >
+                <GlobeIcon className="user-meta-icon" />
+                {formatWebLabel(user.web)}
+              </a>
             )}
           </div>
         )}

@@ -317,6 +317,12 @@
     "displayName": "Alooche"
   },
   {
+    "handle": "amin",
+    "displayName": "Amin Mohammadi",
+    "joined": "February 2007",
+    "web": "http://rozha.blogsome.com/"
+  },
+  {
     "handle": "aminbz",
     "displayName": "aminbz"
   },
@@ -1538,7 +1544,9 @@
   },
   {
     "handle": "mhmazidi",
-    "displayName": "mhmazidi"
+    "displayName": "Hossein Mazidi",
+    "web": "https://mhmazidi.wordpress.com/",
+    "joined": "January 2007"
   },
   {
     "handle": "MHozeh",
@@ -1790,10 +1798,11 @@
   {
     "handle": "nima",
     "displayName": "Nima Akbarpour",
-    "joined": "April 2007",
+    "joined": "Apr 16 2007",
     "location": "United Kingdom",
     "verifiedSince": "January 2012",
-    "connectedVia": "United Kingdom Android App"
+    "connectedVia": "United Kingdom Android App",
+    "web": "http://www.osyan.net"
   },
   {
     "handle": "nimania",

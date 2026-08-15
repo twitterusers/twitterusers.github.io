@@ -21,6 +21,8 @@ export interface XUserRecord {
   connectedVia?: string;
   /** Whether this account is set to private/protected on X. */
   isPrivate?: boolean;
+  /** Optional personal/external website URL from the account's bio. */
+  web?: string;
 }
 
 /**
@@ -38,6 +40,7 @@ export class XUser {
   readonly usernameChangesLastOn?: string;
   readonly connectedVia?: string;
   readonly isPrivate?: boolean;
+  readonly web?: string;
 
   /** Extension expected for locally supplied avatars, see public/images/users/README.md */
   private static readonly imageExtension = "webp";
@@ -53,6 +56,7 @@ export class XUser {
     this.usernameChangesLastOn = record.usernameChangesLastOn?.trim() || undefined;
     this.connectedVia = record.connectedVia?.trim() || undefined;
     this.isPrivate = record.isPrivate === true;
+    this.web = record.web?.trim() || undefined;
   }
 
   /** The live profile on X, e.g. https://x.com/jfjfj */
