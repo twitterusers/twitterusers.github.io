@@ -4,8 +4,8 @@
   <h1>Directory</h1>
 
   <p>
-    A community directory of archived X (formerly Twitter) handles &mdash;
-    each entry links out to the current live profile and to its history
+    A community directory of archived X (formerly Twitter) handles.
+    Each entry links out to the current live profile and to its history
     on the Wayback Machine.
   </p>
 
@@ -38,7 +38,7 @@
 ## Overview
 
 Directory renders a searchable grid of compact, expandable cards. Each
-card is collapsed by default &mdash; avatar and handle only &mdash; and
+card is collapsed by default, showing only the avatar and handle, and
 opens in place on click (or <kbd>Enter</kbd> / <kbd>Space</kbd>) to
 reveal the display name, optional location and join date, and two
 icon links:
@@ -61,8 +61,7 @@ icon links:
 
 All 600+ entries are held in one shared, in-memory directory object,
 built once from a static JSON file and queried by every card and by
-the search bar &mdash; there's no per-card duplication of state or
-fetch logic.
+the search bar, with no per-card duplication of state or fetch logic.
 
 ## Architecture
 
@@ -112,8 +111,8 @@ name; `location` and `joined` are optional:
 
 ### Adding an avatar
 
-Drop an image at `public/images/users/<handle-lowercase>.webp` &mdash;
-see `public/images/users/README.md`. Entries without a matching image
+Drop an image at `public/images/users/<handle-lowercase>.webp`. See
+`public/images/users/README.md`. Entries without a matching image
 fall back to a generated initials badge automatically, so this step
 is optional per user.
 
