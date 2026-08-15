@@ -3,13 +3,16 @@
     "handle": "1000pa2",
     "displayName": "هزارپا",
     "joined": "August 2012",
-    "location": "United Arab Emirates"
+    "location": "United Arab Emirates",
+    "verifiedSince": "March 2024",
+    "connectedVia": "United Arab Emirates App Store"
   },
   {
     "handle": "18_Brumaire",
     "displayName": "هجدهم برومر",
     "joined": "August 2013",
-    "location": "Japan"
+    "location": "Japan",
+    "connectedVia": "Web"
   },
   {
     "handle": "1Asemanii",
@@ -20,31 +23,40 @@
     "handle": "1CrazyCatLover",
     "displayName": "ارغوان",
     "joined": "July 2008",
-    "location": "Netherlands"
+    "location": "Netherlands",
+    "usernameChanges": 5,
+    "usernameChangesLastOn": "March 2023",
+    "connectedVia": "Netherlands App Store"
   },
   {
     "handle": "1Fathi",
     "displayName": "فتحی",
     "joined": "November 2007",
-    "location": "Iran"
+    "location": "Iran",
+    "connectedVia": "Web"
   },
   {
     "handle": "1hoseim",
     "displayName": "Hosein Norouzi",
     "joined": "December 2013",
-    "location": "Netherlands"
+    "location": "Netherlands",
+    "connectedVia": "United Kingdom App Store"
   },
   {
     "handle": "1khes",
     "displayName": "خِسی‌بی",
     "joined": "October 2012",
-    "location": "Germany"
+    "location": "Germany",
+    "usernameChanges": 3,
+    "usernameChangesLastOn": "September 2022",
+    "connectedVia": "Iran Android App"
   },
   {
     "handle": "21aban",
     "displayName": "Parham",
     "joined": "March 2007",
-    "location": "United States"
+    "location": "United States",
+    "connectedVia": "United States App Store"
   },
   {
     "handle": "2ndmoon",
@@ -55,13 +67,15 @@
     "handle": "30na60",
     "displayName": "Sina",
     "joined": "November 2011",
-    "location": "Italy"
+    "location": "Italy",
+    "connectedVia": "United States App Store"
   },
   {
     "handle": "4RASH",
     "displayName": "© عارَژ ©",
     "joined": "July 2010",
-    "location": "United States"
+    "location": "United States",
+    "connectedVia": "United States App Store"
   },
   {
     "handle": "777sabz",
@@ -75,13 +89,19 @@
     "handle": "__4_N_D_6__",
     "displayName": "AnDsh",
     "joined": "November 2016",
-    "location": "Germany"
+    "location": "Germany",
+    "usernameChanges": 8,
+    "usernameChangesLastOn": "September 2022",
+    "connectedVia": "United States App Store"
   },
   {
     "handle": "___Satin___",
     "displayName": "ساتين",
     "joined": "April 2016",
-    "location": "United Arab Emirates"
+    "location": "United Arab Emirates",
+    "usernameChanges": 2,
+    "usernameChangesLastOn": "November 2017",
+    "connectedVia": "United States App Store"
   },
   {
     "handle": "_alirezarazavi",
@@ -92,13 +112,19 @@
     "handle": "_alirezas",
     "displayName": "のㆆテ",
     "joined": "February 2009",
-    "location": "Germany"
+    "location": "Germany",
+    "usernameChanges": 1,
+    "usernameChangesLastOn": "December 2020",
+    "connectedVia": "United States App Store"
   },
   {
     "handle": "_Arsames",
     "displayName": "Arsham",
     "joined": "June 2009",
-    "location": "United States"
+    "location": "United States",
+    "usernameChanges": 17,
+    "usernameChangesLastOn": "October 2024",
+    "connectedVia": "Iran Android App"
   },
   {
     "handle": "_Exception_",
@@ -109,19 +135,26 @@
     "handle": "_MehryarS_",
     "displayName": "MEHRYĀR.S",
     "joined": "September 2010",
-    "location": "Germany"
+    "location": "Germany",
+    "connectedVia": "United States App Store"
   },
   {
     "handle": "_Nightwatcher_",
     "displayName": "Nightwatcher 🌌",
     "joined": "May 2009",
-    "location": "Australia"
+    "location": "Australia",
+    "usernameChanges": 1,
+    "usernameChangesLastOn": "April 2017",
+    "connectedVia": "Australia App Store"
   },
   {
     "handle": "_nikouk_",
     "displayName": "Nikouk",
     "joined": "January 2010",
-    "location": "Sweden"
+    "location": "Sweden",
+    "usernameChanges": 9,
+    "usernameChangesLastOn": "May 2024",
+    "connectedVia": "United States App Store"
   },
   {
     "handle": "_skybird____",
@@ -131,7 +164,8 @@
   {
     "handle": "_Taher_",
     "displayName": "Taher Chegini",
-    "joined": "February 2008"
+    "joined": "February 2008",
+    "connectedVia": "Web"
   },
   {
     "handle": "a8n3s",
@@ -1277,7 +1311,9 @@
     "handle": "kheyzaran",
     "displayName": "خیزران",
     "joined": "March 2007",
-    "location": "Bulgaria"
+    "location": "Bulgaria",
+    "verifiedSince": "July 2026",
+    "connectedVia": "United States App Store"
   },
   {
     "handle": "khodayarsv",
@@ -1731,7 +1767,8 @@
     "handle": "nilian",
     "displayName": "Nima Nilian",
     "joined": "November 2008",
-    "location": "Belgium"
+    "location": "Belgium",
+    "connectedVia": "Belgium Android App"
   },
   {
     "handle": "niloofar67",
@@ -1749,7 +1786,9 @@
     "handle": "nima",
     "displayName": "Nima Akbarpour",
     "joined": "April 2007",
-    "location": "United Kingdom"
+    "location": "United Kingdom",
+    "verifiedSince": "January 2012",
+    "connectedVia": "United Kingdom Android App"
   },
   {
     "handle": "nimania",

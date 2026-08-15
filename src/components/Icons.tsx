@@ -76,6 +76,55 @@ export const GridIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
+/** Verified-account badge: filled scalloped seal with a checkmark. */
+export const VerifiedIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+    <path d="M12 2.5 14.4 4.6 17.5 4l1 3 3 1-.6 3.1 2.1 2.4-2.1 2.4.6 3.1-3 1-1 3-3.1-.6L12 23.5l-2.4-2.1-3.1.6-1-3-3-1 .6-3.1L1 12l2.1-2.4L2.5 6.5l3-1 1-3 3.1.6L12 2.5Z" />
+    <path
+      d="m8.4 12.3 2.4 2.4 4.8-4.8"
+      fill="none"
+      stroke="var(--surface, #08090b)"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+/** Pencil glyph for a history of username/handle changes. */
+export const PencilIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    {...props}
+  >
+    <path d="M12 20h9" />
+    <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+  </svg>
+);
+
+/** Device/client glyph for the "Connected via" field. */
+export const DeviceIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    {...props}
+  >
+    <rect x="6" y="2.5" width="12" height="19" rx="2.2" />
+    <path d="M10.5 18.5h3" />
+  </svg>
+);
+
 export const GitHubIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
     <path

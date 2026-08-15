@@ -11,6 +11,14 @@ export interface XUserRecord {
   joined?: string;
   /** Optional free-text location, shown in the expanded card if present. */
   location?: string;
+  /** Optional "Verified since <Month year>" text, from X's verification date. */
+  verifiedSince?: string;
+  /** Optional count of username changes this account has made. */
+  usernameChanges?: number;
+  /** Optional date of the most recent username change. */
+  usernameChangesLastOn?: string;
+  /** Optional client/device string, e.g. "United States App Store". */
+  connectedVia?: string;
 }
 
 /**
@@ -23,6 +31,10 @@ export class XUser {
   readonly displayName: string;
   readonly joined?: string;
   readonly location?: string;
+  readonly verifiedSince?: string;
+  readonly usernameChanges?: number;
+  readonly usernameChangesLastOn?: string;
+  readonly connectedVia?: string;
 
   /** Extension expected for locally supplied avatars, see public/images/users/README.md */
   private static readonly imageExtension = "webp";
@@ -32,6 +44,11 @@ export class XUser {
     this.displayName = record.displayName.trim() || record.handle.trim();
     this.joined = record.joined?.trim() || undefined;
     this.location = record.location?.trim() || undefined;
+    this.verifiedSince = record.verifiedSince?.trim() || undefined;
+    this.usernameChanges =
+      typeof record.usernameChanges === "number" ? record.usernameChanges : undefined;
+    this.usernameChangesLastOn = record.usernameChangesLastOn?.trim() || undefined;
+    this.connectedVia = record.connectedVia?.trim() || undefined;
   }
 
   /** The live profile on X, e.g. https://x.com/jfjfj */
@@ -70,8 +87,22 @@ export class XUser {
     return (parts[0][0] + parts[1][0]).toUpperCase();
   }
 
-  /** Whether this entry matches a free text search query. */
-  matches(query: string): boolean {
+  /**
+   * Combines the username-change count with the date of the most
+   * recent one, e.g. "2 changes, last Nov 2017". Falls back to just
+   * the count, or just the date, if only one half is present.
+   */
+  get usernameChangeSummary(): string | undefined {
+    const count = this.usernameChanges;
+    const lastOn = this.usernameChangesLastOn;
+    if (count === undefined && !lastOn) return undefined;
+    const countText =
+      count === undefined ? undefined : `${count} ${count === 1 ? "change" : "changes"}`;
+    if (countText && lastOn) return `${countText}, last ${lastOn}`;
+    return countText ?? `Last changed ${lastOn}`;
+  }
+
+  /** Whether this entry matches a free text search query. */  matches(query: string): boolean {
     const q = query.trim().toLowerCase();
     if (!q) return true;
     return (

@@ -3,6 +3,9 @@ import { Avatar } from "./Avatar";
 import {
   LocationIcon,
   CalendarIcon,
+  VerifiedIcon,
+  PencilIcon,
+  DeviceIcon,
   XLogoIcon,
   ArchiveLogoIcon,
 } from "./Icons";
@@ -56,26 +59,56 @@ export const UserCard: FC<UserCardProps> = ({
         <Avatar user={user} baseUrl={baseUrl} />
         <div className="user-text">
           <div className="user-handle">@{user.handle}</div>
-          {expanded && <div className="user-name">{user.displayName}</div>}
+          {expanded && (
+            <div className="user-name">
+              {user.displayName}
+              {user.verifiedSince && (
+                <VerifiedIcon className="verified-badge" aria-label="Verified" />
+              )}
+            </div>
+          )}
         </div>
       </div>
 
-      {expanded && (user.joined || user.location) && (
-        <div className="user-card-meta">
-          {user.location && (
-            <div className="user-meta-row">
-              <LocationIcon className="user-meta-icon" />
-              {user.location}
-            </div>
-          )}
-          {user.joined && (
-            <div className="user-meta-row">
-              <CalendarIcon className="user-meta-icon" />
-              Joined {user.joined}
-            </div>
-          )}
-        </div>
-      )}
+      {expanded &&
+        (user.location ||
+          user.joined ||
+          user.verifiedSince ||
+          user.usernameChangeSummary ||
+          user.connectedVia) && (
+          <div className="user-card-meta">
+            {user.location && (
+              <div className="user-meta-row">
+                <LocationIcon className="user-meta-icon" />
+                {user.location}
+              </div>
+            )}
+            {user.joined && (
+              <div className="user-meta-row">
+                <CalendarIcon className="user-meta-icon" />
+                Joined {user.joined}
+              </div>
+            )}
+            {user.verifiedSince && (
+              <div className="user-meta-row">
+                <VerifiedIcon className="user-meta-icon" />
+                Verified since {user.verifiedSince}
+              </div>
+            )}
+            {user.usernameChangeSummary && (
+              <div className="user-meta-row">
+                <PencilIcon className="user-meta-icon" />
+                {user.usernameChangeSummary}
+              </div>
+            )}
+            {user.connectedVia && (
+              <div className="user-meta-row">
+                <DeviceIcon className="user-meta-icon" />
+                {user.connectedVia}
+              </div>
+            )}
+          </div>
+        )}
 
       {expanded && (
         <div className="user-card-links">
