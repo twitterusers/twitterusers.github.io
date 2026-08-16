@@ -112,6 +112,12 @@ export const UserCard: FC<UserCardProps> = ({
           user.firstUsername ||
           user.isPrivate) && (
           <div className="user-card-meta">
+            {user.firstUsername && (
+              <div className="user-meta-row">
+                <AtIcon className="user-meta-icon" />
+                First username: {user.firstUsername}
+              </div>
+            )}
             {user.isPrivate && (
               <div className="user-meta-row">
                 <LockIcon className="user-meta-icon" />
@@ -152,12 +158,6 @@ export const UserCard: FC<UserCardProps> = ({
               <div className="user-meta-row">
                 <DeviceIcon className="user-meta-icon" />
                 {user.connectedVia}
-              </div>
-            )}
-            {user.firstUsername && (
-              <div className="user-meta-row">
-                <AtIcon className="user-meta-icon" />
-                First username: {user.firstUsername}
               </div>
             )}
             {user.links.map((link) => {
