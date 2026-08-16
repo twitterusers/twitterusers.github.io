@@ -1733,7 +1733,12 @@
   },
   {
     "handle": "MaryamMohtadi",
-    "displayName": "Maryam"
+    "displayName": "Maryam Mohtadi",
+    "joined": "September 2012",
+    "location": "Germany",
+    "verifiedSince": "April 2026",
+    "connectedVia": "Iran Android App",
+    "updatedOrder": 1101
   },
   {
     "handle": "maryamss",
@@ -2253,7 +2258,13 @@
   },
   {
     "handle": "PersianOwl",
-    "displayName": "جغد❤️"
+    "displayName": "Rafee Diani",
+    "joined": "August 2011",
+    "location": "Netherlands",
+    "usernameChanges": 1,
+    "usernameChangesLastOn": "April 2017",
+    "connectedVia": "Netherlands App Store",
+    "updatedOrder": 1103
   },
   {
     "handle": "phouzhan",
@@ -3173,5 +3184,51 @@
     "displayName": "ناتارانا",
     "joined": "July 2021",
     "updatedOrder": 1099
+  },
+  {
+    "handle": "zeberry3",
+    "displayName": "zeberry3",
+    "joined": "November 2022",
+    "location": "Germany",
+    "usernameChanges": 1,
+    "usernameChangesLastOn": "November 2022",
+    "connectedVia": "United States App Store",
+    "updatedOrder": 1100
+  },
+  {
+    "handle": "Banafshehviola",
+    "displayName": "بنفشه",
+    "joined": "July 2020",
+    "location": "Canada",
+    "usernameChanges": 6,
+    "usernameChangesLastOn": "May 2023",
+    "connectedVia": "Canada Android App",
+    "updatedOrder": 1102
+  },
+  {
+    "handle": "arqaavan",
+    "displayName": "ارغوان",
+    "joined": "August 2017",
+    "updatedOrder": 1104
+  },
+  {
+    "handle": "drealvla",
+    "displayName": "دریما",
+    "joined": "May 2018",
+    "location": "United Arab Emirates",
+    "usernameChanges": 10,
+    "usernameChangesLastOn": "June 2023",
+    "connectedVia": "United States App Store",
+    "updatedOrder": 1105
+  },
+  {
+    "handle": "springtheb",
+    "displayName": "The B",
+    "joined": "February 2024",
+    "location": "Germany",
+    "usernameChanges": 2,
+    "usernameChangesLastOn": "April 2024",
+    "connectedVia": "United States App Store",
+    "updatedOrder": 1106
   }
 ]
